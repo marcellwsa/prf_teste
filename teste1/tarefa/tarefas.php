@@ -9,6 +9,7 @@
 		session_start();
 		
 		include 'banco.php';
+		include 'ajudantes.php';
 		
 		if (isset($_GET['nome']) && $_GET['nome'] != '') {
 			$tarefa = array();
@@ -34,7 +35,11 @@
 				$tarefa['concluida'] = '';
 			}
 			
+			gravar_tarefas($conexao, $tarefa);
+			//$_SESSION['lista_tarefas'][] = $tarefa;
 		}
+		
+		
 		
 		$lista_tarefas = buscar_tarefas($conexao);
 		
