@@ -8,7 +8,7 @@
     <?php
 		session_start();
 		
-		include '../prf_teste/tarefa/banco.php';
+		include 'banco.php';
 		
 		if (isset($_GET['nome']) && $_GET['nome'] != '') {
 			$tarefa = array();
@@ -38,7 +38,7 @@
 		
 		$lista_tarefas = buscar_tarefas($conexao);
 		
-		include '../prf_teste/tarefa/template.php';
+		include 'template.php';
 		
 	?>
     </body>
