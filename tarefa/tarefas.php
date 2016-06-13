@@ -8,7 +8,8 @@
     <?php
 		session_start();
 		
-		include '../prf_teste/tarefa/banco.php';
+		include 'banco.php';
+		include 'ajudantes.php';
 		
 		if (isset($_GET['nome']) && $_GET['nome'] != '') {
 			$tarefa = array();
@@ -34,11 +35,15 @@
 				$tarefa['concluida'] = '';
 			}
 			
+			gravar_tarefas($conexao, $tarefa);
+			//$_SESSION['lista_tarefas'][] = $tarefa;
 		}
+		
+		
 		
 		$lista_tarefas = buscar_tarefas($conexao);
 		
-		include '../prf_teste/tarefa/template.php';
+		include 'template.php';
 		
 	?>
     </body>

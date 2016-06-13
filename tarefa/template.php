@@ -24,9 +24,9 @@
     		<fieldset>
     			<legend>Prioridade</legend>
     			<label>
-    				<input type="radio" name="prioridade" value="Baixa" checked="checked"/>Baixa
-    				<input type="radio" name="prioridade" value="Media"/>Media
-    				<input type="radio" name="prioridade" value="Alta"/>Alta
+    				<input type="radio" name="prioridade" value="1" checked="checked"/>Baixa
+    				<input type="radio" name="prioridade" value="2"/>Media
+    				<input type="radio" name="prioridade" value="3"/>Alta
     			</label>
     		</fieldset>
     		<label>
@@ -49,7 +49,7 @@
     		<td><?php echo $tarefa['nome']; ?> </td>
     		<td><?php echo $tarefa['descricao'];?></td>
     		<td><?php echo $tarefa['prazo']?></td>
-    		<td><?php echo $tarefa['prioridade']?> </td>
+    		<td><?php echo traduz_prioridade($tarefa['prioridade'])?> </td>
     		<td><?php echo $tarefa['concluida']?></td>
     	</tr>
     	<?php endforeach;?>
