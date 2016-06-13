@@ -17,10 +17,9 @@
 		$conexao = pg_connect($con_string);
 		$data = date('d/m/Y');
 		echo "<p>". $data.  "</p>";
-		
-		echo date('Y/m/d', strtotime($data));
+		 
 		echo "<p>";
-		echo substr($data, 8, 2) . '-'. substr($data, 5, 2) . '-' . substr($data, 0, 4);
+		echo substr($data, 8, 2) . ''. substr($data, 5, 2) . '' . substr($data, 0, 4);
 		echo "<p>";
 		
 		
