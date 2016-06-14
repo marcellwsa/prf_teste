@@ -12,7 +12,7 @@
 		$banco = "tarefas";
 		
 		$con_string = "host=localhost port=5432 dbname=tarefas user=postgres password=123456";
-		//teste
+		//teste teste feito
 		
 		$conexao = pg_connect($con_string);
 		
