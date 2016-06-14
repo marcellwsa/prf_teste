@@ -22,7 +22,7 @@
     			<input type="text" name="prazo"/>
     		</label>
     		<fieldset>
-    			<legend>Prioridade!!</legend>
+    			<legend>Prioridade</legend>
     			<label>
     				<input type="radio" name="prioridade" value="1" checked="checked"/>Baixa
     				<input type="radio" name="prioridade" value="2"/>Media
@@ -50,7 +50,7 @@
     		<td><?php echo $tarefa['descricao'];?></td>
     		<td><?php echo traduz_data_para_exibir($tarefa['prazo']);?></td>
     		<td><?php echo traduz_prioridade($tarefa['prioridade']);?> </td>
-    		<td><?php echo $tarefa['concluida'];?></td>
+    		<td><?php echo traduz_concluida($tarefa['concluida']);?></td>
     	</tr>
     	<?php endforeach;?>
     </table>
