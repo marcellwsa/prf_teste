@@ -12,11 +12,11 @@
 		$banco = "tarefas";
 		
 		$con_string = "host=localhost port=5432 dbname=tarefas user=postgres password=123456";
-		
+		//teste
 		
 		$conexao = pg_connect($con_string);
 		
-		echo "Conex„o efetuada com sucesso!!";
+		echo "Conex√£o efetuada com sucesso!!";
 		
 		function buscar_tarefas($conexao) {
 			$sqlBusca = 'SELECT * FROM tarefas';
