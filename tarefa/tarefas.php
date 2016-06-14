@@ -10,6 +10,7 @@
 		
 		include 'banco.php';
 		include 'ajudantes.php';
+		include 'template.php';
 		
 		if (isset($_GET['nome']) && $_GET['nome'] != '') {
 			$tarefa = array();
@@ -43,7 +44,7 @@
 		
 		$lista_tarefas = buscar_tarefas($conexao);
 		
-		include 'template.php';
+		
 		
 	?>
     </body>

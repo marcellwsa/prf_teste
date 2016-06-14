@@ -45,9 +45,8 @@
     	function traduz_concluida($concluida) {
     		if ($concluida == 1) {
     			return 'sim';
-    		}else {
-    			return 'não';
     		}
+    			return 'não';
     	}
     }
 	?>
