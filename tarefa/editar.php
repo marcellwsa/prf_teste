@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
-<title>Gerenciador de tarefas</title>
+<title>Insert title here</title>
 </head>
     <body>
     <?php
@@ -13,9 +13,10 @@
 		
 		$exibir_tabela = false;
 		
-		
 		if (isset($_GET['nome']) && $_GET['nome'] != '') {
 			$tarefa = array();
+			$tarefa['id'] = $_GET['id'];
+			
 			$tarefa['nome'] = $_GET['nome'];
 			
 			if (isset($_GET['descricao'])) {
@@ -29,25 +30,21 @@
 			} else {
 				$tarefa['prazo'] = '';
 			}
-			
+				
 			$tarefa['prioridade'] = $_GET['prioridade'];
-			
+				
 			if (isset($_GET['concluida'])) {
 				$tarefa['concluida'] = 1;
 			} else {
 				$tarefa['concluida'] = 0;
 			}
 			
-			gravar_tarefas($conexao, $tarefa);
-			//$_SESSION['lista_tarefas'][] = $tarefa;
+			editar_tarefa($conexao, $tarefa);
 		}
 		
-		
-		
-		$lista_tarefas = buscar_tarefas($conexao);
+		$tarefa = buscar_tarefa($conexao, $_GET['id']);
 		
 		include 'template.php';
-		
 	?>
     </body>
 </html>

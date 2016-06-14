@@ -43,7 +43,7 @@
     	}
     	
     	function traduz_concluida($concluida) {
-    		if ($concluida == 1) {
+    		if ($concluida == 'true') {
     			return 'sim';
     		}
     			return 'não';
