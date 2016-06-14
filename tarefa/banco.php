@@ -15,13 +15,6 @@
 		
 		
 		$conexao = pg_connect($con_string);
-		$data = date('d/m/Y');
-		echo "<p>". $data.  "</p>";
-		 
-		echo "<p>";
-		echo substr($data, 8, 2) . ''. substr($data, 5, 2) . '' . substr($data, 0, 4);
-		echo "<p>";
-		
 		
 		echo "Conexão efetuada com sucesso!!";
 		
@@ -38,10 +31,11 @@
 		} //fim da funcao buscar
 		
 		function gravar_tarefas($conexao, $tarefa) {
-			$sqlGravar = "INSERT INTO tarefas (nome, descricao, prioridade) VALUES
-					('{$tarefa['nome']}', '{$tarefa['descricao']}', '{$tarefa['prioridade']}' ) 
-			
+			$sqlGravar = "INSERT INTO tarefas (nome, descricao, prioridade, prazo, concluida) VALUES
+					('{$tarefa['nome']}', '{$tarefa['descricao']}', 
+					'{$tarefa['prioridade']}', '{$tarefa['prazo']}', '{$tarefa['concluida']}' ) 
 					";
+			
 			pg_query($conexao, $sqlGravar);
 		}
 		
