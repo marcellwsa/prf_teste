@@ -7,14 +7,15 @@
     <body>
     <?php
 		$servidor = "localhost";
-		$usuario = "postgres";
-		$senha = "123456";
-		$banco = "tarefas";
+		$porta = "5432";
+		$user = "postgres";
+		$password = "123456";
+		$dbname = "tarefas";
 		
-		$con_string = "host=localhost port=5432 dbname=tarefas user=postgres password=123456";
-		//teste teste feito
+		//$con_string = "host=localhost port=5432 dbname=tarefas user=postgres password=123456";
+		$con_string2 = "host=".$servidor . " port=".$porta . " dbname=".$dbname . " user=".$user . " password=".$password; 
 		
-		$conexao = pg_connect($con_string);
+		$conexao = pg_connect($con_string2);
 		
 		echo "Conexão efetuada com sucesso!!";
 		
@@ -58,6 +59,10 @@
 			pg_query($conexao, $sql);
 		}
 		
+		function remover_tarefa($conexao, $id) {
+			$sqlRemover = "DELETE FROM tarefas WHERE ID = {$id}";
+			pg_query($conexao, $sqlRemover);
+		}
 		
 	?>
     </body>
