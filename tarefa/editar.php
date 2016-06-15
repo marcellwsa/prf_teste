@@ -10,6 +10,9 @@
 		
 		include 'banco.php';
 		include 'ajudantes.php';
+		include 'classes/Tarefas.php';
+		
+		$tarefas = new Tarefas($conexao);
 		
 		$exibir_tabela = false;
 		
@@ -52,14 +55,16 @@
 			}
 			
 			if(!$tem_erros) {
-				editar_tarefa($conexao, $tarefa);
+				$tarefas->editar_tarefa($tarefa);
 				header('Location: tarefas.php');
 				die();
 			}
 			
 		}
 		
-		$tarefa = buscar_tarefa($conexao, $_GET['id']);
+		$tarefas->buscar_tarefa($_GET['id']);
+		//$tarefa = buscar_tarefa($conexao, $_GET['id']);
+		
 		$tarefa['nome'] = (isset($_POST['nome'])) ? $_POST['nome'] : $tarefa['nome'];
 		$tarefa['descricao'] = (isset($_POST['descricao'])) ? $_POST['descricao'] : $tarefa['descricao'];
 		$tarefa['prazo'] = (isset($_POST['prazo'])) ? $_POST['prazo'] : $tarefa['prazo'];

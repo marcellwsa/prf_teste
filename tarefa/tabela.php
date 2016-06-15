@@ -14,7 +14,7 @@
 			<th>Concluída</th>
 			<th>Opções</th>
     	</tr>
-    	<?php foreach ($lista_tarefas as $tarefa) :?>
+    	<?php foreach ($tarefas->tarefas as $tarefa) :?>
     	<tr>
     		<td><?php echo $tarefa['nome']; ?> </td>
     		<td><?php echo $tarefa['descricao'];?></td>

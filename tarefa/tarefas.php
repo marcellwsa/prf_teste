@@ -10,6 +10,9 @@
 		
 		include 'banco.php';
 		include 'ajudantes.php';
+		include 'classes/Tarefas.php';
+		
+		$tarefas = new Tarefas($conexao);
 		
 		$exibir_tabela = true;
 		
@@ -53,7 +56,7 @@
 			}
 			
 			if (! $tem_erros) {
-				gravar_tarefas($conexao, $tarefa);
+				$tarefas->gravar_tarefa($tarefa);
 				header('Location: tarefas.php');
 				die();
 			}
@@ -63,7 +66,7 @@
 		
 		
 		
-		$lista_tarefas = buscar_tarefas($conexao);
+		//$lista_tarefas = buscar_tarefas($conexao);
 		
 		$tarefa = array(
 				'id' => 0,
@@ -73,7 +76,7 @@
 				'prioridade' =>  (isset($_POST['prioridade'])) ? $_POST['prioridade'] : 1,
 				'concluida' => (isset($_POST['concluida'])) ? traduz_concluida($_POST['concluida']) : ''
 		);
-		
+		$tarefas->buscar_tarefas();
 		include 'template.php';
 		
 	?>
