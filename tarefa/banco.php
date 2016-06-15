@@ -39,6 +39,25 @@
 			pg_query($conexao, $sqlGravar);
 		}
 		
+		function  buscar_tarefa($conexao, $id) {
+			$sqlBusca = "SELECT * FROM tarefas WHERE id = " . $id;
+			$resultado = pg_query($conexao, $sqlBusca);
+			return pg_fetch_assoc($resultado);
+		}
+		
+		function editar_tarefa ($conexao, $tarefa) {
+			$sql = "UPDATE tarefas SET 
+					nome = '{$tarefa['nome']}',
+					descricao = '{$tarefa['descricao']}',
+					prioridade = '{$tarefa['prioridade']}',
+					prazo = '{$tarefa['prazo']}',
+					concluida = '{$tarefa['concluida']}' WHERE 
+						id = '{$tarefa['id']}'
+							
+							";
+			pg_query($conexao, $sql);
+		}
+		
 		
 	?>
     </body>
