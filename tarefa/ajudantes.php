@@ -6,6 +6,7 @@
 </head>
     <body>
     <?php
+    
     function traduz_prioridade($codigo) {
     	$prioridade = '';
     	switch ($codigo) {
@@ -78,6 +79,18 @@
     	
     	return $resultado;
     	
+    }
+    
+    require_once 'banco.php';
+    function retorna_descricao($conexao, $id, $tabela, $colunaID) {
+    	$sql = "SELECT * FROM " . $tabela . " WHERE " . $colunaID . " = " . $id;
+    	$resultado = pg_query($conexao, $sql);
+    	$resultado2 = array();
+    	while ($opcoes = pg_fetch_assoc($resultado)) {
+    		$resultado2[] = $opcoes;
+    		
+    	}
+    	//return $resultado2;
     }
     
 	?>

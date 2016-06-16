@@ -42,6 +42,34 @@
     				echo ($tarefa['prioridade'] == 3) ? 'checked' : '' ; ?>/>Alta
     			</label>
     		</fieldset>
+    		<fieldset>
+    			<legend>Teste de ComboBox:</legend>
+    			<label>
+    				<select name="local_infracao">
+    				<option value = "0" >Selecione um local</option>
+    				<?php $sqlOpcoes = "SELECT * FROM local_infracao";
+    				$ops = pg_query($conexao, $sqlOpcoes);
+    				while ($opcoes = pg_fetch_assoc($ops)) {
+    				?>
+    				<option value="<?php echo $opcoes['id_local_infracao'];?>">
+    				<?php echo $opcoes['descricao'];?></option>
+    				<?php 
+    				}?>	
+    				<input type="submit" name="opcoes_local_infracao" value="testar"/>
+    				
+    				<?php if (isset($_POST['local_infracao']) && ($_POST['local_infracao'] > 0)) {
+    					
+    					echo "Código escolhido foi: " . $_POST['local_infracao'];
+    					$nomeEscolhido = retorna_descricao($conexao, $_POST['local_infracao'], 
+    							"local_infracao", "id_local_infracao");
+    					echo "Nome escolhido foi: " . $nomeEscolhido;
+    					
+    				} 
+    				;?> 
+    					
+    				</select>
+    			</label>
+    		</fieldset>
     		<label>
     			Tarefa concluída:
     			<input type="checkbox" name="concluida" value="1" <?php 
